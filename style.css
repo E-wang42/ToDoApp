@@ -48,10 +48,14 @@ h1 {
 }
 
 #addInput {
-  width: 2.1rem;
+  width: 4rem;
   height: 1.9rem;
   margin-left: -2.4rem;
-  border-radius: 0.1rem;
+  border-radius: 0.5rem;
+}
+
+#addInput:hover {
+  background: linear-gradient(to right, #fc00ff, #00dbde);
 }
 
 svg {
@@ -74,8 +78,15 @@ svg {
 }
 
 .reset {
-  width: 6rem;
+  width: 8rem;
   height: 2rem;
   margin-left: 0.5rem;
   border-radius: 0.4rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.reset:hover {
+  background: linear-gradient(to right, #fc00ff, #00dbde);
+  color: white;
 }
