@@ -19,7 +19,7 @@ body {
   margin-top: 1.8rem;
 }
 
-.contentParagraph {
+.contentSpan {
   font-weight: bold;
   font-size: 1.6rem;
   padding: 0.2rem 0 0.2rem 0;
@@ -33,18 +33,22 @@ h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 3.5rem;
   font-weight: bold;
+  text-shadow: 10px 8px 12px #6f00ffb4;
 }
 
 #userInput {
   width: 20rem;
   height: 2rem;
   border-radius: 0.4rem;
+  padding-left: 1rem;
+  font-size: 1.2rem;
 }
 
 #userInput::placeholder {
   font-family: "Poppins", sans-serif;
   font-size: 1.1rem;
   padding-left: 0.8rem;
+  margin: 0 auto;
 }
 
 #addInput {
@@ -58,23 +62,20 @@ h1 {
   background: linear-gradient(to right, #fc00ff, #00dbde);
 }
 
-svg {
-  width: 1.6rem;
-}
-
 .contentDiv {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: inherit;
-  width: 25rem;
+  max-width: 30rem;
   margin: 0 auto;
   padding: 0.2rem 0 0.2rem 0;
 }
 
 .binDelete {
-  width: 3rem;
-  margin-left: 2rem;
+  width: 2.6rem;
+  height: 2.8rem;
+  background-color: #6f00ffb4;
 }
 
 .reset {
@@ -89,4 +90,16 @@ svg {
 .reset:hover {
   background: linear-gradient(to right, #fc00ff, #00dbde);
   color: white;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.fa-trash-can {
+  pointer-events: none;
+  font-size: 1.8rem;
+  text-align: center;
+  margin: 0 auto;
+  color: #dddddd;
 }

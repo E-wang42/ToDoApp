@@ -1,48 +1,67 @@
 "use strict";
 
+//Selectors
 const input = document.querySelector("#userInput"); //user input bar
 const button = document.querySelector("#addInput"); //user input add button
 const reset = document.querySelector(".reset"); //user input reset button
 const list = document.querySelector(".userInputContent"); //content list div
-const div = document.querySelector(".contentDiv"); //content div
-const paragraph = document.querySelector(".contentParagraph"); //content paragraph
-const binDelete = document.querySelector(".binDelete");
 
-//appends user input value
+//Append Function
 const appendList = function () {
-  list.insertAdjacentHTML(
-    "beforebegin",
-    `<div class="contentDiv"><p class="contentParagraph">${input.value}</p><button class="binDelete"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-  </svg></button></div>`
-  );
+  //content div
+  const div = document.createElement("div");
+  div.classList.add("contentDiv");
+  //content span
+  const textSpan = document.createElement("span");
+  textSpan.classList.add("contentSpan");
+  textSpan.textContent = input.value;
+  div.appendChild(textSpan);
+  //delete button
+  const bin = document.createElement("button");
+  bin.classList.add("binDelete");
+  bin.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
+  div.appendChild(bin);
+  //append to main container
+  list.appendChild(div);
+  //reset input field
+  input.value = "";
 };
 
-//function of button onClick
-button.addEventListener("click", function () {
-  appendList();
-  input.value = "";
-});
+//Delete Function
+const remove = (e) => {
+  const item = e.target;
+  if (item.classList[0] === "binDelete") {
+    const todo = item.parentElement;
+    todo.remove();
+  }
+};
 
-//function of "enter" key press
-document.addEventListener("keydown", function (event) {
+//Strike-through Function
+const completed = (e) => {
+  const item = e.target;
+  if (item.classList[0] === "contentSpan") {
+    const todo = item.classList;
+    todo.toggle("completed");
+  }
+};
+
+//Click Event
+button.addEventListener("click", appendList);
+
+//Key-press Event
+input.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     appendList();
-    input.value = "";
   }
 });
 
-//strike-through event
-// paragraph.addEventListener("click", function () {
-//   paragraph.style.textDecoration = "line-through";
-// });
+//Delete Event
+list.addEventListener("click", remove);
 
-//delete content event
-// binDelete.addEventListener("click", function () {
-//   div.remove();
-// });
+//Strike-through Event
+list.addEventListener("click", completed);
 
-//reset button event
+//Reset Event
 reset.addEventListener("click", function () {
   list.innerHTML = null;
   input.value = "";
