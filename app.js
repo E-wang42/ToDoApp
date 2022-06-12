@@ -50,7 +50,7 @@ button.addEventListener("click", appendList);
 
 //Key-press Event
 input.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
+  if (event.key === "Enter" && input.value !== "") {
     appendList();
   }
 });
