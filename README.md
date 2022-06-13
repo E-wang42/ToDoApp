@@ -1,3 +1,3 @@
-simple JS app
+Vanilla To Do App
 
-https://simpletodolistonezmode.netlify.app
+https://vanillatodoapp.netlify.app
